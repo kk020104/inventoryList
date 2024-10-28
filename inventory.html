@@ -1,0 +1,371 @@
+<!-- inventory screen -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inventoryStyle.css" type="text/css">
+    <script src="inventoryScript.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Inventory</title>
+</head>
+
+<body>
+    <br>
+    <header>
+        <strong id="titleStyle">INVENTORY</strong><br>
+
+        <input list="location-options" id="locations" placeholder="location">
+        <datalist id="location-options">
+            <option value="fridge">
+            <option value="freezer">
+            <option value="pantry">
+            <option value="counter">
+        </datalist>
+        <button onclick="go()" id="go-button">Go!</button>
+    </header> <br>
+
+    <!-- <div id="fridge" class="screen hidden">
+        <div id="scroll">
+            <div id="inventory-container">
+                <div id="inventory-list-section">
+                    <div class="section-title">
+                        <h2>Fridge List <span id="item-count">(0)</span></h2>
+                    </div>
+                    <div class="inventory-buttons">
+                        <input list="filter-options" id="filter" placeholder="filter">
+                        <datalist id="filter-options">
+                            <option value="alphabetical">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                        <button id="sort-button" onclick="sort()">Sort</button>
+                        <button id="addItemButton" class="add-item-button" onclick="showAddItemPopup()">Add an Item</button>
+                    </div>
+                    <table id="inventory-list">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div id="popup" class="hidden">
+            <div class="popup-content">
+                <label>Input Information Below</label>
+                <input type="text" id="item-name" placeholder="enter item name..."><br>
+                <input type="number" id="amt" min="1" placeholder="enter amt...">
+                <input type="text" id="unit" placeholder="enter unit of measurement..."><br>
+                <input list="tag-options" id="tag-name" placeholder="choose tag name">
+                        <datalist id="tag-options">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                <button onclick="addItem()" class="popUpButtons" id="addItem">Add Item</button>
+                <button onclick="closePopup()" class="popUpButtons" id="cancel">Cancel</button>
+            </div>
+        </div>
+    
+        <div id="footerBackground">
+            <footer>
+                <a href="inventory.html" id="inventoryIcon"><img src="icons/inventoryIcon.png" alt="inventoryIcon"></a>
+                <a href="shopping.html" id="shoppingIcon"><img src="icons/shoppingIcon.png" alt="shoppingIcon"></a>
+                <a href="recipes.html" id="recipesIcon"><img src="icons/recipesIcon.png" alt="recipesIcon"></a>
+                <a href="profile.html" id="profileIcon"><img src="icons/profileIcon.png" alt="profileIcon"></a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="freezer" class="screen hidden">
+        <div id="scroll">
+            <div id="inventory-container">
+                <div id="inventory-list-section">
+                    <div class="section-title">
+                        <h2>Freezer List <span id="item-count">(0)</span></h2>
+                    </div>
+                    <div class="inventory-buttons">
+                        <input list="filter-options" id="filter" placeholder="filter">
+                        <datalist id="filter-options">
+                            <option value="alphabetical">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                        <button id="sort-button" onclick="sort()">Sort</button>
+                        <button id="addItemButton" class="add-item-button" onclick="showAddItemPopup()">Add an Item</button>
+                    </div>
+                    <table id="inventory-list">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div id="popup" class="hidden">
+            <div class="popup-content">
+                <label>Input Information Below</label>
+                <input type="text" id="item-name" placeholder="enter item name..."><br>
+                <input type="number" id="amt" min="1" placeholder="enter amt...">
+                <input type="text" id="unit" placeholder="enter unit of measurement..."><br>
+                <input list="tag-options" id="tag-name" placeholder="choose tag name">
+                        <datalist id="tag-options">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                <button onclick="addItem()" class="popUpButtons" id="addItem">Add Item</button>
+                <button onclick="closePopup()" class="popUpButtons" id="cancel">Cancel</button>
+            </div>
+        </div>
+    
+        <div id="footerBackground">
+            <footer>
+                <a href="inventory.html" id="inventoryIcon"><img src="icons/inventoryIcon.png" alt="inventoryIcon"></a>
+                <a href="shopping.html" id="shoppingIcon"><img src="icons/shoppingIcon.png" alt="shoppingIcon"></a>
+                <a href="recipes.html" id="recipesIcon"><img src="icons/recipesIcon.png" alt="recipesIcon"></a>
+                <a href="profile.html" id="profileIcon"><img src="icons/profileIcon.png" alt="profileIcon"></a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="pantry" class="screen hidden">
+        <div id="scroll">
+            <div id="inventory-container">
+                <div id="inventory-list-section">
+                    <div class="section-title">
+                        <h2>Pantry List <span id="item-count">(0)</span></h2>
+                    </div>
+                    <div class="inventory-buttons">
+                        <input list="filter-options" id="filter" placeholder="filter">
+                        <datalist id="filter-options">
+                            <option value="alphabetical">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                        <button id="sort-button" onclick="sort()">Sort</button>
+                        <button id="addItemButton" class="add-item-button" onclick="showAddItemPopup()">Add an Item</button>
+                    </div>
+                    <table id="inventory-list">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div id="popup" class="hidden">
+            <div class="popup-content">
+                <label>Input Information Below</label>
+                <input type="text" id="item-name" placeholder="enter item name..."><br>
+                <input type="number" id="amt" min="1" placeholder="enter amt...">
+                <input type="text" id="unit" placeholder="enter unit of measurement..."><br>
+                <input list="tag-options" id="tag-name" placeholder="choose tag name">
+                        <datalist id="tag-options">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                <button onclick="addItem()" class="popUpButtons" id="addItem">Add Item</button>
+                <button onclick="closePopup()" class="popUpButtons" id="cancel">Cancel</button>
+            </div>
+        </div>
+    
+        <div id="footerBackground">
+            <footer>
+                <a href="inventory.html" id="inventoryIcon"><img src="icons/inventoryIcon.png" alt="inventoryIcon"></a>
+                <a href="shopping.html" id="shoppingIcon"><img src="icons/shoppingIcon.png" alt="shoppingIcon"></a>
+                <a href="recipes.html" id="recipesIcon"><img src="icons/recipesIcon.png" alt="recipesIcon"></a>
+                <a href="profile.html" id="profileIcon"><img src="icons/profileIcon.png" alt="profileIcon"></a>
+            </footer>
+        </div>
+    </div>
+
+    <div id="counter" class="screen hidden">
+        <div id="scroll">
+            <div id="inventory-container">
+                <div id="inventory-list-section">
+                    <div class="section-title">
+                        <h2>Counter List <span id="item-count">(0)</span></h2>
+                    </div>
+                    <div class="inventory-buttons">
+                        <input list="filter-options" id="filter" placeholder="filter">
+                        <datalist id="filter-options">
+                            <option value="alphabetical">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                        <button id="sort-button" onclick="sort()">Sort</button>
+                        <button id="addItemButton" class="add-item-button" onclick="showAddItemPopup()">Add an Item</button>
+                    </div>
+                    <table id="inventory-list">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div id="popup" class="hidden">
+            <div class="popup-content">
+                <label>Input Information Below</label>
+                <input type="text" id="item-name" placeholder="enter item name..."><br>
+                <input type="number" id="amt" min="1" placeholder="enter amt...">
+                <input type="text" id="unit" placeholder="enter unit of measurement..."><br>
+                <input list="tag-options" id="tag-name" placeholder="choose tag name">
+                        <datalist id="tag-options">
+                            <option value="fruits">
+                            <option value="vegetables">
+                            <option value="grains">  
+                            <option value="meat">
+                            <option value="poultry">
+                            <option value="seafood">
+                            <option value="nuts/seeds">
+                            <option value="dairy">
+                            <option value="herbs/spices">
+                            <option value="beverages">
+                            <option value="condiments/sauces">
+                        </datalist><br><br>
+                <button onclick="addItem()" class="popUpButtons" id="addItem">Add Item</button>
+                <button onclick="closePopup()" class="popUpButtons" id="cancel">Cancel</button>
+            </div>
+        </div>
+    
+        <div id="footerBackground">
+            <footer>
+                <a href="inventory.html" id="inventoryIcon"><img src="icons/inventoryIcon.png" alt="inventoryIcon"></a>
+                <a href="shopping.html" id="shoppingIcon"><img src="icons/shoppingIcon.png" alt="shoppingIcon"></a>
+                <a href="recipes.html" id="recipesIcon"><img src="icons/recipesIcon.png" alt="recipesIcon"></a>
+                <a href="profile.html" id="profileIcon"><img src="icons/profileIcon.png" alt="profileIcon"></a>
+            </footer>
+        </div>
+    </div> -->
+
+    <div id="scroll">
+        <div id="inventory-container">
+            <div id="inventory-list-section">
+                <div class="section-title">
+                    <h2>Your List <span id="item-count">(0)</span></h2>
+                </div>
+                <div class="inventory-buttons">
+                    <input list="filter-options" id="filter" placeholder="filter">
+                    <datalist id="filter-options">
+                        <option value="original list">
+                        <option value="alphabetical">
+                        <option value="fruits">
+                        <option value="vegetables">
+                        <option value="grains">  
+                        <option value="meat">
+                        <option value="poultry">
+                        <option value="seafood">
+                        <option value="nuts/seeds">
+                        <option value="dairy">
+                        <option value="herbs/spices">
+                        <option value="beverages">
+                        <option value="condiments/sauces">
+                    </datalist><br><br>
+                    <button id="sort-button" onclick="sort()">Sort</button>
+                    <button id="addItemButton" class="add-item-button" onclick="showAddItemPopup()">Add an Item</button>
+                </div>
+                <table id="inventory-list">
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+            <label>Input Information Below</label>
+            <input type="text" id="item-name" placeholder="enter item name..."><br>
+            <input type="number" id="amt" min="1" placeholder="enter amt...">
+            <input type="text" id="unit" placeholder="enter unit of measurement..."><br>
+            <input list="tag-options" id="tag-name" placeholder="choose tag name">
+                    <datalist id="tag-options">
+                        <option value="fruits">
+                        <option value="vegetables">
+                        <option value="grains">  
+                        <option value="meat">
+                        <option value="poultry">
+                        <option value="seafood">
+                        <option value="nuts/seeds">
+                        <option value="dairy">
+                        <option value="herbs/spices">
+                        <option value="beverages">
+                        <option value="condiments/sauces">
+                    </datalist><br><br>
+            <button onclick="addItem()" class="popUpButtons" id="addItem">Add Item</button>
+            <button onclick="closePopup()" class="popUpButtons" id="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <div id="footerBackground">
+        <footer>
+            <a href="inventory.html" id="inventoryIcon"><img src="icons/inventoryIcon.png" alt="inventoryIcon"></a>
+            <a href="shopping.html" id="shoppingIcon"><img src="icons/shoppingIcon.png" alt="shoppingIcon"></a>
+            <a href="recipes.html" id="recipesIcon"><img src="icons/recipesIcon.png" alt="recipesIcon"></a>
+            <a href="profile.html" id="profileIcon"><img src="icons/profileIcon.png" alt="profileIcon"></a>
+        </footer>
+    </div>
+</body>
+
+</html>
