@@ -32,7 +32,7 @@ header {
     text-align: center;
 }
 
-#go-button {
+#saveList-button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 16px;
     padding: 5px;
@@ -47,10 +47,6 @@ header {
 
 .hidden {
     display: none;
-}
-
-.screen {
-    background-color: white;
 }
 
 /* BODY SECTION */
@@ -117,42 +113,6 @@ header {
     position: relative;
 }
 
-.delete-button {
-    background-color: rgb(165, 120, 94);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.plus-button, .minus-button {
-    background-color: rgb(165, 120, 94);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 5px;
-}
-
-.addToShopping-button {
-    background-color: rgb(165, 120, 94);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 40px;
-}
-
 .inventory-button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 16px;
@@ -189,6 +149,42 @@ header {
     cursor: pointer;
     margin-right: 10px;
     width: 60px;
+}
+
+.plus-button, .minus-button {
+    background-color: rgb(165, 120, 94);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.addToShopping-button {
+    background-color: rgb(165, 120, 94);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 40px;
+}
+
+.delete-button {
+    background-color: rgb(165, 120, 94);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .add-item-button {
@@ -277,6 +273,15 @@ header {
 }
 
 #tag-name {
+    width: 200px;
+    height: 30px;
+    border: 0.01rem solid rgb(165, 120, 94);
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#locationEntry {
     width: 200px;
     height: 30px;
     border: 0.01rem solid rgb(165, 120, 94);
