@@ -132,7 +132,7 @@ header {
 
 #filter {
     width: 100px;
-    height: 30px;
+    height: 35px;
     border: 0.01rem solid rgb(165, 120, 94);
     border-radius: 10px;
     font-size: 15px;
@@ -264,8 +264,8 @@ header {
 }
 
 #unit {
-    width: 175px;
-    height: 30px;
+    width: 210px;
+    height: 40px;
     border: 0.01rem solid rgb(165, 120, 94);
     border-radius: 10px;
     font-size: 14px;
@@ -274,11 +274,12 @@ header {
 
 #tag-name {
     width: 200px;
-    height: 30px;
+    height: 40px;
     border: 0.01rem solid rgb(165, 120, 94);
     border-radius: 10px;
     font-size: 14px;
     text-align: center;
+    margin-top: 5px;
 }
 
 #locationEntry {

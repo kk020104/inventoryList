@@ -61,7 +61,7 @@ function sort() {
 }
 
 // Add an item to the inventory list from the popup input fields
-function addItem() {
+function addInventoryItem() {
     const itemName = document.getElementById("item-name").value;
     const amt = parseInt(document.getElementById("amt").value, 10);
     const unit = document.getElementById("unit").value;
@@ -129,6 +129,7 @@ function updateInventoryList(list = inventoryLists[currentLocation]) {
         addToShoppingButton.textContent = "Add to Shopping";
         addToShoppingButton.classList.add("addToShopping-button");
         addToShoppingButton.onclick = () => addToShopping();
+        // addToShoppingButton.onclick = () => addToShopping(item.name, item.amt);
         buttonCell.appendChild(addToShoppingButton);
 
         // Create the delete button
@@ -168,7 +169,8 @@ function removeItem(index) {
 
 //IN PROGRESS
 function addToShopping() {
-    alert("adding to shopping list");
+    //addItem(name, amt);
+    alert("add to shopping");
 }
 
 function saveInventoryListToLocalStorage() {
