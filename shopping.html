@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="shoppingStyle.css" type="text/css">
     <script src="shoppingScript.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
     <title>Shopping List</title>
 </head>
 <body>
-    <header>Shopping List</header>
+    <br>
+    <header><strong>Shopping List</strong></header>
     
     <!-- Shopping Container -->
     <div id="shopping-container">
@@ -20,9 +23,11 @@
                 <button id="chooseInventoryButton" class="inventory-button" onclick="promptInven()">Choose from Inventory</button>
                 <button id="addItemButton" class="add-item-button" onclick="promptAdd()">Add an Item</button>
             </div>
-            <table id="shopping-list">
-                <tbody></tbody>
-            </table>
+            <div id="shopping-list-wrapper">
+                <table id="shopping-list">
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -35,10 +40,13 @@
 
             <label for="unit">Unit:</label>
             <select id="unit">
-                <option value="pcs">pcs</option>
-                <option value="lbs">kg</option>
-                <option value="oz">L</option>
-                <option value="packs">packs</option>
+                <option value="pc(s)">pc(s)</option>
+                <option value="bag(s)">bag(s)</option>
+                <option value="kg">kg</option>
+                <option value="lb(s)">lb(s)</option>
+                <option value="g">g</option>
+                <option value="L">L</option>
+                <option value="mL">mL</option>
             </select>
 
             <button onclick="addItem()">Add Item</button>
@@ -55,11 +63,13 @@
         </div>
     </div>
 
-    <footer>
-        <a href="inventory.html" id="inventoryIcon"><img src="../icons/inventoryIcon.png" alt="inventoryIcon"></a>
-        <a href="recipes.html" id="recipesIcon"><img src="../icons/recipesIcon.png" alt="recipesIcon"></a>
-        <a href="shopping.html" id="shoppingIcon"><img src="../icons/shoppingIcon.png" alt="shoppingIcon"></a>
-        <a href="profile.html" id="profileIcon"><img src="../icons/profileIcon.png" alt="profileIcon"></a>
-    </footer>
+    <div id="footerBackground">
+        <footer>
+            <a href="inventory.html" id="inventoryIcon"><img src="icons/inventoryIcon.png" alt="inventoryIcon"></a>
+            <a href="recipes.html" id="recipesIcon"><img src="icons/recipesIcon.png" alt="recipesIcon"></a>
+            <a href="shopping.html" id="shoppingIcon"><img src="icons/shoppingIcon.png" alt="shoppingIcon"></a>
+            <a href="profile.html" id="profileIcon"><img src="icons/profileIcon.png" alt="profileIcon"></a>
+        </footer>
+    </div>
 </body>
 </html>

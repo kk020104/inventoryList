@@ -13,11 +13,11 @@ let inventory = [];
 
 
 /* ===== Add button ====== */
-function promptAdd() { popup.classList.remove("hidden"); }
+function promptAdd() { popup.classList.remove("hidden"); document.getElementById("unit").selectedIndex = 0;}
 function cancelAdd() { popup.classList.add("hidden"); }
 
 /* Adds an item. If the name matches, the quantity will increase. */
-function addItem() {
+function addItem() {    
     const itemName = document.getElementById("item-name").value.trim();
     const quantity = parseInt(document.getElementById("quantity").value.trim(), 10);
     const unit = document.getElementById("unit").value;
@@ -36,7 +36,7 @@ function addItem() {
     cancelAdd();
     document.getElementById("item-name").value = "";
     document.getElementById("quantity").value = "";
-    document.getElementById("unit").value = "pcs";
+    document.getElementById("unit").selectedIndex = 0;
 }
 
 
@@ -79,10 +79,7 @@ function addItemFromInventory(index) {
 function updateShoppingList() {
     const tbody = shoppingListTable.querySelector("tbody");
     tbody.innerHTML = "";
-
-    //tell him to add this!!!
     itemCountSpan.textContent = `(${shoppingList.length})`;
-
     shoppingList.forEach((item, index) => {
         const row = document.createElement("tr");
         const nameCell = document.createElement("td");

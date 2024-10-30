@@ -4,7 +4,7 @@ let inventoryLists = {
     pantry: [],
     counter: []
 };
-let currentLocation = "fridge";
+let currentLocation = "";
 const inventoryListTable = document.getElementById("inventory-list");
 const itemCountSpan = document.getElementById("item-count");
 const popup = document.getElementById("popup");
@@ -128,7 +128,7 @@ function updateInventoryList(list = inventoryLists[currentLocation]) {
         const addToShoppingButton = document.createElement("button");
         addToShoppingButton.textContent = "Add to Shopping";
         addToShoppingButton.classList.add("addToShopping-button");
-        addToShoppingButton.onclick = () => addToShopping(item.name, item.amt);
+        addToShoppingButton.onclick = () => addToShopping(item.name, item.amt, item.unit);
         buttonCell.appendChild(addToShoppingButton);
 
         // Create the delete button
@@ -166,8 +166,7 @@ function removeItem(index) {
     updateInventoryList();
 }
 
-//IN PROGRESS
-function addToShopping(name, amt) {
+function addToShopping(name, amt, unit) {
     const savedList = localStorage.getItem("shoppingList");
     let shoppingList;
 
@@ -181,7 +180,7 @@ function addToShopping(name, amt) {
     if (existingItem) {
         existingItem.quantity += amt;
     } else {
-        shoppingList.push({ name: name, quantity: amt });
+        shoppingList.push({ name: name, quantity: amt, unit: unit});
     }
     
     localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
