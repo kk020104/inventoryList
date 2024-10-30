@@ -8,7 +8,10 @@ let currentLocation = "fridge";
 const inventoryListTable = document.getElementById("inventory-list");
 const itemCountSpan = document.getElementById("item-count");
 const popup = document.getElementById("popup");
+const popup2 = document.getElementById("addToShoppingPopup");
 const locationsMenu = document.getElementById("locations");
+
+let shoppingList = [];
 
 // Show popup to add an item
 function showAddItemPopup() {
@@ -39,7 +42,7 @@ function go() {
 function sort() {
     let currentFilter = document.getElementById("filter").value;
     let sortedList = [...inventoryLists[currentLocation]];
-    if (currentFilter === "original list") {
+    if (currentFilter === "full list") {
         saveInventoryListToLocalStorage();
         updateInventoryList();
     } else if (currentFilter === "alphabetical") {
@@ -103,10 +106,7 @@ function updateInventoryList(list = inventoryLists[currentLocation]) {
         nameCell.textContent = item.name;
 
         const amtCell = document.createElement("td");
-        amtCell.textContent = item.amt;
-
-        const unitCell = document.createElement("td");
-        unitCell.textContent = item.unit;
+        amtCell.textContent = `${item.amt} ${item.unit}`;
 
         const buttonCell = document.createElement("td");
 
@@ -128,8 +128,7 @@ function updateInventoryList(list = inventoryLists[currentLocation]) {
         const addToShoppingButton = document.createElement("button");
         addToShoppingButton.textContent = "Add to Shopping";
         addToShoppingButton.classList.add("addToShopping-button");
-        addToShoppingButton.onclick = () => addToShopping();
-        // addToShoppingButton.onclick = () => addToShopping(item.name, item.amt);
+        addToShoppingButton.onclick = () => addToShopping(item.name, item.amt);
         buttonCell.appendChild(addToShoppingButton);
 
         // Create the delete button
@@ -139,7 +138,7 @@ function updateInventoryList(list = inventoryLists[currentLocation]) {
         deleteButton.onclick = () => removeItem(index);
         buttonCell.appendChild(deleteButton);
 
-        row.append(nameCell, amtCell, unitCell, buttonCell);
+        row.append(nameCell, amtCell, buttonCell);
 
         tbody.appendChild(row);
     });
@@ -168,9 +167,26 @@ function removeItem(index) {
 }
 
 //IN PROGRESS
-function addToShopping() {
-    //addItem(name, amt);
-    alert("add to shopping");
+function addToShopping(name, amt) {
+    const savedList = localStorage.getItem("shoppingList");
+    let shoppingList;
+
+    if (savedList) {
+        shoppingList = JSON.parse(savedList);
+    } else {
+        shoppingList = [];
+    }
+
+    const existingItem = shoppingList.find(item => item.name.toLowerCase() === name.toLowerCase());
+    if (existingItem) {
+        existingItem.quantity += amt;
+    } else {
+        shoppingList.push({ name: name, quantity: amt });
+    }
+    
+    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+    updateShoppingList();
+    
 }
 
 function saveInventoryListToLocalStorage() {
